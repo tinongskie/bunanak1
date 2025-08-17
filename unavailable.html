@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok batangnana live schedule</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #ff0050; /* TikTok's signature pink */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            font-size: 2em;
+            margin: 0;
+        }
+
+        /* Main content styling */
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap; /* Adjust layout on smaller screens */
+            gap: 20px;
+        }
+
+        /* Schedule section styling */
+        .schedule {
+            flex: 2;
+        }
+
+        .schedule h2 {
+            font-size: 1.8em;
+            color: #ff0050;
+            margin-bottom: 10px;
+        }
+
+        .schedule p, .schedule ul, .schedule li {
+            margin: 10px 0;
+        }
+
+        .schedule ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .schedule li {
+            font-size: 1.1em;
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        footer a {
+            color: #ff0050;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Volume control styling */
+        .volume-control {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .volume-control input {
+            width: 100%;
+            max-width: 300px;
+        }
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column; /* Stack the elements vertically */
+                text-align: center;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .schedule {
+                flex: 1;
+            }
+
+            .schedule h2 {
+                font-size: 1.5em;
+            }
+
+            footer {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            .schedule h2 {
+                font-size: 1.2em;
+            }
+
+            .schedule li {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+<script>
+
+    // Set the last update timestamp
+    const lastUpdated = new Date('2025-01-16T19:16:00'); // Replace with your last updated date and time
+
+    // Function to calculate the time difference
+    function calculateTimePassed(lastUpdated) {
+        const now = new Date();
+        const diffInMilliseconds = now - lastUpdated;
+        const diffInHours = Math.floor(diffInMilliseconds / (1000 * 60 * 60));
+        const diffInDays = Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24));
+
+        let timePassedText = `${diffInHours} hours ago`;
+        if (diffInDays >= 1) {
+            timePassedText = `${diffInDays} day(s) ago`;
+        }
+
+        return timePassedText;
+    }
+
+    // Display the last updated date and time passed
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById('lastUpdated').textContent = lastUpdated.toLocaleString();
+        document.getElementById('timePassed').textContent = calculateTimePassed(lastUpdated);
+    });
+</script>
+
+    <!-- Other Content (e.g., Header, Main, etc.) -->
+    <header>
+        <h1>Link are no longer available</h1>
+    </header>
+	<center>
+    <main>
+	<h3>sorry, the link are no longer available and removed on our site.</h3>
+	<body>
+    <h1>Redirecting you back to tiktok live schedule in 10 seconds...</h1>
+    <p>If you are not redirected automatically, <a href="https://tinongskie.github.io/batangnana-TikTok-Live-Schedule/">click here</a>.</p>
+    <script>
+        // Optional JavaScript countdown
+        let countdown = 10;
+        const timerElement = document.createElement('p');
+        timerElement.id = 'timer';
+        timerElement.textContent = `Redirecting in ${countdown} seconds...`;
+        document.body.appendChild(timerElement);
+
+        const interval = setInterval(() => {
+            countdown--;
+            timerElement.textContent = `Redirecting in ${countdown} seconds...`;
+            if (countdown <= 0) {
+                clearInterval(interval);
+            }
+        }, 1000);
+    </script>
+</main>
+</center>
+    <footer>
+        <p>© 2025 My TikTok Lives | Connect with me on <a href="https://www.tiktok.com/@batangnana" target="_self">TikTok</a></p>
+        <p>Follow me on  <a href="https://www.facebook.com/profile.php?id=100092747559301" target="_self">Facebook</a></p>
+        <p>Follow Fia on  <a href="unavailable.html" target="_self">TikTok</a></p>
+        <p>Website updated on <span id="lastUpdated"></span> (<span id="timePassed"></span>)</p>
+    </footer>
+</body>
+</html>

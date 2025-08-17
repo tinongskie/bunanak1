@@ -1,0 +1,64 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f4f4f4;
+}
+
+h1 {
+  color: #333;
+}
+
+.game-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pc-case {
+  width: 400px;
+  height: 500px;
+  border: 2px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #ddd;
+}
+
+.motherboard {
+  width: 90%;
+  height: auto;
+  position: relative;
+}
+
+.motherboard img {
+  width: 100%;
+}
+
+.components {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 20px;
+}
+
+.component {
+  width: 150px;
+  height: 80px;
+  margin: 10px 0;
+  border: 2px solid #333;
+  background-color: #fff;
+  cursor: grab;
+  text-align: center;
+}
+
+.component img {
+  width: 100px;
+  height: auto;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 20px;
+  color: green;
+}
