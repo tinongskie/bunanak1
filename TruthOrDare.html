@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truth or Dare (Tagalog Version)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .game-container {
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .output {
+            margin-top: 30px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Truth or Dare (Tagalog Version)</h1>
+    <div class="game-container">
+        <button id="truthBtn">Truth</button>
+        <button id="dareBtn">Dare</button>
+        <div class="output" id="output"></div>
+        <div id="extraButtons" style="display: none;">
+            <button id="doneBtn">Done</button>
+            <button id="forfeitBtn">Forfeit</button>
+            <button id="ooBtn">Oo</button>
+            <button id="hindiBtn">Hindi</button>
+            <button id="walaBtn">Wala</button>
+        </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="doneSound" src="done.mp3"></audio>
+    <audio id="forfeitSound" src="sounds/wrong.mp3"></audio>
+    <audio id="hindiSound" src="sounds/correct.mp3"></audio>
+    <audio id="walaSound" src="sounds/womp.mp3"></audio>
+
+    <script>
+        const truths = [
+            "May jowa ka na ba?", "Kailan ka huling kinilig?", "Nagkaroon ka na ba ng long-distance relationship?",
+            "Nagmahal ka na ba pero hindi ka minahal pabalik?", "Nagka-crush ka na ba sa best friend mo?",
+            "Pumayag ka na bang maging third party sa relasyon?", "Ano ang pinakamasakit na breakup na naranasan mo?",
+            "Paano mo hinarap ang unang heartbreak mo?", "Na-ghost ka na ba ng jowa mo?", "Na-try mo bang manligaw?",
+            "Ilang beses ka nang nagka-crush sa iisang tao?", "May ex ka pa bang hindi mo kayang kalimutan?",
+            "Nagseselos ka ba kapag may kausap na iba ang jowa mo?", "Ano ang pinaka-nakakatawa ninyong away ng jowa mo?",
+            "Sino ang una mong naging crush sa school?", "Nagka-feelings ka na ba sa isang kaibigan?",
+            "Pumayag ka bang bumalik sa ex mo kung babalikan ka niya?", "Nagsinungaling ka na ba sa jowa mo?",
+            "Paano mo nalaman na gusto mo ang isang tao?", "Nagkahiwalay na ba kayo ng jowa mo pero nagbalikan?",
+            "Anong pinaka-romantic na ginawa mo para sa isang tao?", "Nagkaroon ka na ba ng selos sa taong wala ka pang relasyon?",
+            "Ano ang pinakamalaking sekreto mo sa relasyon?", "Pinagsisihan mo na ba ang isang relationship?",
+            "Kailan ka huling umiyak dahil sa love?", "Ano ang pinakamasayang memory mo sa relasyon mo?",
+            "Pumayag ka bang ipaglaban ang isang relasyon kahit mahirap?", "Paano ka mag-move on?",
+            "Nagkaroon ka na ba ng feelings sa isang tao na bawal mong mahalin?", "Pinakakilig moment mo?",
+            "Nag-stalk ka na ba sa social media ng crush o jowa mo?", "Naramdaman mo na bang hindi ka sapat sa relasyon?",
+            "Nagkaroon ka na ba ng two-timer sa buhay mo?", "Kailan mo nalaman na in love ka?",
+            "Nagselos ka na ba sa ibang tao dahil sa crush mo?", "Ano ang pinaka-corny na love letter na natanggap mo?",
+            "Pumayag ka bang makipag-date sa taong hindi mo kilala?", "Nagustuhan mo na ba ang teacher mo?",
+            "Paano mo ipapakita ang pagmamahal mo sa simpleng paraan?", "May crush ka bang celebrity?",
+            "Sino ang unang taong sinabi mong 'I love you'?", "Nagka-feelings ka na ba sa isang ka-chat?",
+            "Ano ang pinaka-hindi mo kayang kalimutan sa love life mo?", "Pumayag ka bang magsakripisyo para sa isang relasyon?",
+            "Sino ang first love mo?", "Nagkasabay na bang magka-crush ka sa dalawang tao?",
+            "Ano ang pinakamakulit na tanong ng jowa mo?", "Paano ka magpakilig ng isang tao?", "Ano ang love language mo?",
+            "Pumayag ka bang bigyan ng second chance ang isang ex?", "Mahal mo pa ba ex mo?", "Sino ang crush mo ngayon?",
+            "Ano ang pinaka-nakakahiyang bagay na ginawa mo sa harap ng ibang tao?", "Ilang ex na ang mayroon ka?",
+            "Ano ang pinakapaborito mong pagkain na weird para sa iba?", "Ano ang pinakapangit na palayaw na itinawag sa’yo?",
+            "Kailan ang huling beses na nagsinungaling ka sa magulang mo?", "Ano ang iyong pinaka-kakaibang talent?",
+            "Sino ang huling tao na sinungitan mo at bakit?", "Kung pipili ka, sino ang gusto mong makasama sa stranded island?",
+            "Ano ang huling text na na-send mo?", "Ano ang pinaka-weird na bagay na sinubukan mong kainin?", "Sino ang hindi mo gusto sa grupong ito at bakit?",
+            "Kung pwede kang magkaroon ng isang superpower, ano ito?", "Ano ang pinaka-nakakainis na habit mo?",
+            "Nasaktan ka na ba nang sobra sa pag-ibig?", "May ginawa ka na bang nakakahiyang bagay para sa crush mo?",
+"Sinabi mo na ba ang 'I love you' nang hindi mo ibig sabihin?", "Ano ang pinaka-nakakahiya mong secret?",
+"Na-friendzone ka na ba?", "Sinubukan mo na bang mag-chat sa ex mo kahit may bago na siya?",
+"Nagkaroon ka na ba ng fling?", "May nag-confess na ba sa'yo pero hindi mo siya gusto?",
+"Nagbigay ka na ba ng mixed signals sa isang tao?", "Na-in love ka na ba sa maling tao?",
+"May ginawa ka bang bagay na sobrang pinagsisihan mo sa love life mo?", "May lihim ka bang ayaw ipaalam kahit kanino?",
+"Naka-experience ka na bang mabusted?", "Pinili mo na ba ang kaibigan kaysa sa jowa?",
+"May ginawa ka bang bagay na hindi mo kayang sabihin sa magulang mo?", "May nagawa ka na bang kasalanan sa kaibigan mo?",
+"Na-fall ka na ba nang hindi sinasadya?", "Sino ang una mong hinalikan?",
+"Anong pinakamasayang memory mo noong bata ka?", "Nagkaroon ka na ba ng crush sa kapitbahay mo?",
+"Sinong teacher ang pinakanaging favorite mo?", "May ginawa ka na bang prank na sobrang nagalit ang naprank mo?",
+"Anong sikreto ang alam mo tungkol sa ibang tao?", "Mayroon ka bang crush ngayon na hindi mo kayang sabihin?",
+"Na-in love ka na ba sa isang taong hindi mo pa kilala nang personal?", "May tinataguan ka bang tao ngayon?",
+"Sinong taong hinding-hindi mo kayang makalimutan?", "Ano ang pinaka-weird na ginawa mo para sa pag-ibig?",
+"May ginawa ka na bang bagay na kinaiinggitan ng iba?", "Nagselos ka na ba sa kapatid mo?",
+"May tao bang gusto mong balikan pero hindi na pwede?", "May kaaway ka ba ngayon?",
+"Anong ginawa mong bagay na labis mong pinagsisihan?", "Sinong unang tao ang gusto mong tawagan kapag may problema ka?",
+"Nag-stalk ka na ba ng profile ng ex ng crush mo?", "Anong pinakamagandang compliment na natanggap mo?",
+"Naisip mo na bang magpakasal sa taong hindi mo naman mahal?", "Ano ang pinakamasakit na sinabi mo sa ibang tao?",
+"May bagay ka bang gustong itago habang-buhay?", "Sinong celebrity ang gusto mong makasama sa dinner?",
+"Sinubukan mo na bang magpanggap para magustuhan ka ng iba?", "Ano ang bagay na kinakatakutan mo nang sobra?",
+"Nagkaroon ka na ba ng falling out sa isang kaibigan?", "Ano ang pinaka-walang kwentang away na pinag-awayan mo?",
+"Na-in love ka na ba sa taong may sabay kang ayaw?", "May na-confess ka bang lihim sa magulang mo?",
+"Anong huling bagay na nagpaiyak sa'yo?", "Sinong tao ang sobrang nagpapasaya sa'yo ngayon?"
+
+            
+        ];
+
+        const dares = [
+            "Mag-sayaw ng 'Macarena' sa harap ng lahat!", "Mag-tiktok dance na kahit ano!", 
+            "Mag-pose ng cute at post mo sa Facebook!", "Tumalon ng tatlong beses habang sumisigaw ng 'Ako ang hari ng mundo!'",
+            "Mag-stretching parang dancer sa harap ng grupo.", "Sumayaw ng walang music!", 
+            "Kumain ng isang maliit na sili nang hindi iinom ng tubig.", "Mag-acting ng iyak na parang teleserye!",
+            "Mag-video call sa kaibigan mo at mag-good morning!", "Magsuot ng baliktad na damit hanggang matapos ang laro.",
+            "Maglinis ng isang bagay sa loob ng bahay.", "Humiga sa sahig na parang natutulog sa mall!",
+            "Mag-kape kahit alas-sais ng gabi.", "Tumalon ng 10 beses sa isang paa.", "Tumawa nang walang sound.",
+            "Maghubad ng medyas gamit ang kamay lang!", "Kumain ng dalawang kutsara ng kanin nang walang ulam.",
+            "Mag-kwento ng nakakatawa kahit corny!", "Maglakad habang may libro sa ulo.", 
+            "Sumayaw ng ballet nang naka-pajama.", "Mag-pose na parang Instagram model.", 
+            "Mag-massage ng balikat ng katabi mo.", "Humula ng isang kanta habang nakapikit.", 
+            "Mag-selfie na funny face lang.", "Kumain ng isang candy habang umiiyak kunwari.",
+            "Tumayo sa isang paa habang nagbabasa ng truth or dare.", "Gumaya ng tunog ng pusa.",
+            "Sumigaw ng 'Ako ang pinakamalakas!' sa sala.", "Magbigay ng corny pick-up line sa katabi.", 
+            "Pumalakpak ng tatlong beses nang sobrang lakas!", "Kumanta ng 'Happy Birthday' kahit walang may birthday!",
+            "Mag I Love You ka sa katabi mo", "makipag holding hands ka sa katabi mo", "tumawag ka ng random person sa messenger at mag i love you",
+            "Lagyan ng yelo ang kamay mo sa loob ng 30 segundo.", "Tumakbo palabas ng bahay at sumigaw ng “Mahal kita, [pangalan ng crush].",
+            "Gawin ang paborito mong TikTok trend.", "Tumayo ng parang estatwa sa loob ng 3 minuto.", "Kumain ng isang slice ng kalamansi o hilaw na bawang.",
+            "Tawagan ang isang kaibigan at sabihin ang Crush kita", "Pumalakpak gamit ang mga paa.", "Sumulat ng Mahal kita gamit ang ilong sa hangin.",
+            "Sumigaw ng Ako ang pinakamaganda/guwapo sa mundo! sa labas ng bahay.", "Maglakad habang nakapikit sa isang direksyon na ituturo ng grupo.",
+            "Kumain ng isang kakaibang food combination (tulad ng ketchup sa saging).", "I-text ang iyong crush/jowa ng emoji lang (walang salita).",
+            "Mag-post ng embarrassing photo sa social media!", "Sumigaw ng 'Crush kita!' sa bintana.",
+"Magkunwari kang pusa sa loob ng 1 minuto.", "Mag-acting ng pagiging lasing sa harap ng grupo.",
+"Mag-pose na parang celebrity at kunan ng picture.", "Kumain ng lemon slice na walang reaction.",
+"Sumayaw ng walang music sa loob ng 2 minuto.", "Magbigay ng libreng hug sa tatlong tao sa paligid.",
+"Sabihin ang pinaka-corny pick-up line na alam mo.", "Mag-screenshot ng conversation sa messenger at ipakita.",
+"Mag-ala host ng TV show ng 1 minuto.", "Magbaliktad ng damit sa loob ng laro.",
+"Tumawa ng sobrang lakas hanggang mapansin ka ng iba.", "Gayahin ang boses ng kilalang tao.",
+"Magbigay ng random compliment sa taong nasa kaliwa mo.", "Magluto ng kahit ano gamit ang isang kamay.",
+"Maghanap ng bagay na pwedeng gawing sombrero.", "Magbasa ng love letter na parang radio DJ.",
+"Maglinis ng isang area sa bahay nang naka-costume.", "Mag-sayaw ng 'Chicken Dance'.",
+"Humula ng kanta gamit ang isang linya lang.", "Magbigay ng weather report kunwari.",
+"Mag-video call sa random na tao at sabihin, 'Ang gwapo/ganda mo!'",
+"Sumulat ng tula on the spot at basahin.", "Magkunwaring nagpropose sa crush mo.",
+"Gumawa ng TikTok trend sa harap ng pamilya.", "Magbigay ng standing ovation sa susunod na nagsalita.",
+"Mag-pose bilang supermodel habang may hawak na random object.", "Magbigay ng tour ng bahay habang naka-camera."
+
+            
+            
+        ];
+
+        const truthBtn = document.getElementById("truthBtn");
+        const dareBtn = document.getElementById("dareBtn");
+        const output = document.getElementById("output");
+        const extraButtons = document.getElementById("extraButtons");
+
+        const doneSound = document.getElementById("doneSound");
+        const forfeitSound = document.getElementById("forfeitSound");
+        const hindiSound = document.getElementById("hindiSound");
+
+        truthBtn.addEventListener("click", function() {
+            const randomIndex = Math.floor(Math.random() * truths.length);
+            output.textContent = truths[randomIndex];
+            extraButtons.style.display = "block";
+        });
+
+        dareBtn.addEventListener("click", function() {
+            const randomIndex = Math.floor(Math.random() * dares.length);
+            output.textContent = dares[randomIndex];
+            extraButtons.style.display = "block";
+        });
+
+        document.getElementById("doneBtn").addEventListener("click", function() {
+            output.textContent = "Task accomplished! Salamat sa pagiging game! Next player!";
+            doneSound.play();  // Play done sound
+        });
+
+        document.getElementById("forfeitBtn").addEventListener("click", function() {
+            output.textContent = "Nag-forfeit ka! Parusa na agad! talon ka ng 20 times. Next player please...";
+            forfeitSound.play();  // Play forfeit sound
+        });
+
+        document.getElementById("ooBtn").addEventListener("click", function() {
+            output.textContent = "Sumagot ka ng 'Oo.' Honest ka! next player naman. . .";
+            doneSound.play();  // Play done sound
+        });
+
+        document.getElementById("hindiBtn").addEventListener("click", function() {
+            output.textContent = "bakit hindi? May itinatago ka ba? Next player please";
+            hindiSound.play();  // Play hindi sound
+        });
+
+        document.getElementById("walaBtn").addEventListener("click", function() {
+            output.textContent = "Ay... bakit wala? sige sige next na";
+            walaSound.play();  // Play done sound
+        });
+    </script>
+</body>
+</html>

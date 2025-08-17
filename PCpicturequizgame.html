@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Picture Quiz Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #333;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #333;
+      margin-bottom: 20px;
+    }
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .score {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Picture Quiz Game</h1>
+    <img id="quizImage" src="" alt="Quiz Image">
+    <div>
+      <input type="text" id="answerInput" placeholder="Type your answer here">
+      <button onclick="checkAnswer()">Submit</button>
+    </div>
+    <p class="score" id="score">Score: 0</p>
+  </div>
+
+  <audio id="correctSound" src="correct.mp3"></audio>
+  <audio id="wrongSound" src="wrong.mp3"></audio>
+
+  <script>
+    const questions = [
+      { image: "SoundCard.jpg", answer: "sound card" },
+      { image: "ram.jpeg", answer: "ram" },
+      { image: "processor.jpg", answer: "processor" },
+      { image: "motherboard.jpg", answer: "motherboard" },
+      { image: "graphicscard.png", answer: "graphics card" },
+      { image: "ssds.jpg", answer: "ssd" },
+      { image: "harddiskdrive.png", answer: "hard disk drive" },
+      { image: "heatsink.png", answer: "heatsink" },
+      { image: "powersupply.png", answer: "power supply" },
+      { image: "keyboard.png", answer: "keyboard" },
+      { image: "mouse.jpg", answer: "mouse" },
+      { image: "monitor.jpg", answer: "monitor" },
+      { image: "server.png", answer: "server" },
+      { image: "switch.jpg", answer: "switch hub" },
+      { image: "ethernet.png", answer: "ethernet" },
+      // Add more questions here
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    const quizImage = document.getElementById("quizImage");
+    const answerInput = document.getElementById("answerInput");
+    const scoreElement = document.getElementById("score");
+
+    const correctSound = document.getElementById("correctSound");
+    const wrongSound = document.getElementById("wrongSound");
+
+    function loadQuestion() {
+      const question = questions[currentQuestion];
+      quizImage.src = question.image;
+      answerInput.value = "";
+      answerInput.focus();
+    }
+
+    function checkAnswer() {
+      const userAnswer = answerInput.value.trim().toLowerCase();
+      const correctAnswer = questions[currentQuestion].answer.toLowerCase();
+
+      if (userAnswer === correctAnswer) {
+        correctSound.play();
+        score++;
+      } else {
+        wrongSound.play();
+      }
+
+      currentQuestion++;
+      if (currentQuestion < questions.length) {
+        loadQuestion();
+      } else {
+        endGame();
+      }
+
+      scoreElement.textContent = `Score: ${score}`;
+    }
+
+    function endGame() {
+      document.querySelector(".container").innerHTML = `<h1>Game Over!</h1><p>Your final score is ${score}.</p>`;
+    }
+
+    // Load the first question
+    loadQuestion();
+  </script>
+</body>
+</html>

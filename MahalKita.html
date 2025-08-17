@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Form</title>
+    <style>
+        /* Define custom font using @font-face */
+        @font-face {
+            font-family: 'LOVELETTERS';  
+            src: url('LOVELETTERS.TTF') format('truetype'); /* Path to the font file */
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'LOVELETTERS', sans-serif; /* Apply your custom font */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            text-align: center;
+            padding: 20px;
+            border: 2px solid white;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        label {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid white;
+            border-radius: 5px;
+            background-color: black;
+            color: white;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            border: 1px solid white;
+            border-radius: 5px;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: white;
+            color: black;
+        }
+
+        #result {
+            display: none;
+            text-align: center;
+        }
+
+        #message {
+            font-size: 24px;
+        }
+
+        #submittedName {
+            font-weight: bold;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <form id="form">
+        <label for="name">Mahal kita</label>
+        <input type="text" id="name" name="name" placeholder="Enter name">
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="result">
+        <p id="message">Mahal kita <span id="submittedName"></span></p>
+		<a href="MahalKita.html" target="_blank">Reset</a>
+    </div>
+
+    <script>
+        document.getElementById('form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+
+            const name = document.getElementById('name').value;
+            document.getElementById('submittedName').textContent = name;
+
+            // Hide the form and show the result
+            document.getElementById('form').style.display = 'none';
+            document.getElementById('result').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

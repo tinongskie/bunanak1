@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Legends quiz game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        h1 {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            margin: 0;
+        }
+        h2 {
+            color: #333;
+            margin-top: 20px;
+        }
+        form {
+            background-color: white;
+            padding: 20px;
+            margin: 20px auto;
+            width: 50%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .score {
+            font-size: 20px;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <h1>ML quiz game</h1>
+
+    <form id="quizForm" onsubmit="checkAnswers(event)">
+        <!-- Question 1 -->
+        <h2>1. Sino yung marunong mag chou at sinasabi ang "Victory babeh"?</h2>
+        <label>
+            <input type="radio" name="q1" value="Lancezy"> Lancezy
+        </label>
+        <label>
+            <input type="radio" name="q1" value="Trippings"> Trippings
+        </label>
+        <label>
+            <input type="radio" name="q1" value="Fuego"> Fuego
+        </label>
+        <label>
+            <input type="radio" name="q1" value="Elmighty"> Elmighty
+        </label><br><br>
+
+        <!-- Question 2 -->
+        <h2>2. Sino marunong mag lancelot at sinasabi "Mag sosolo sana ang ating bida at bigla na namang may pumasok na chix?"</h2>
+        <label>
+            <input type="radio" name="q2" value="Geor"> Geor
+        </label>
+        <label>
+            <input type="radio" name="q2" value="Lancezy"> Lancezy
+        </label>
+        <label>
+            <input type="radio" name="q2" value="Takuyaki"> Takuyaki
+        </label>
+        <label>
+            <input type="radio" name="q2" value="Fuego"> Fuego
+        </label><br><br>
+
+        <!-- Question 3 -->
+        <h2>3. Sino yung content creator na nagsasabi ng "At yun na nga guys, panalo na kami. Wag kayong susuko laban lang palagi para araw-araw kayong victory?"</h2>
+        <label>
+            <input type="radio" name="q3" value="Lancezy"> Lancezy
+        </label>
+        <label>
+            <input type="radio" name="q3" value="Geor"> Geor
+        </label>
+        <label>
+            <input type="radio" name="q3" value="Fuego"> Fuego
+        </label>
+        <label>
+            <input type="radio" name="q3" value="Takuyaki"> Takuyaki
+        </label><br><br>
+
+        <!-- Question 4 -->
+        <h2>4. Sino ang mga unang hero na ginawa ng ml?</h2>
+        <label>
+            <input type="radio" name="q4" value="Nana, alucard, chip, cici"> Nana, alucard, chip, cici
+        </label>
+        <label>
+            <input type="radio" name="q4" value="Layla, alucard, nana, suyou"> layla, alucard, nana, suyou
+        </label>
+        <label>
+            <input type="radio" name="q4" value="Miya, balmond, saber, tigreal"> Miya, balmond, saber, tigreal
+        </label><br><br>
+
+        <!-- Question 5 -->
+        <h2>5. May chance ba na mag segway si nana sa Ranked Game?</h2>
+        <label>
+            <input type="radio" name="q5" value= "pwede"> pwede
+        </label>
+        <label>
+            <input type="radio" name="q5" value= "hindi"> hindi
+        </label>
+        <label>
+            <input type="radio" name="q5" value= "depende"> depende
+        </label><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="score" class="score"></div>
+
+    <script>
+        function checkAnswers(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const answers = {
+                q1: "Elmighty",   // Correct answer for question 1
+                q2: "Lancezy",  // Correct answer for question 2
+                q3: "Takuyaki",       // Correct answer for question 3
+                q4: "Miya, balmond, saber, tigreal"     // Correct answer for question 4
+                q5: "depende" // Correct answer for question 5
+            };
+
+            let score = 0;
+
+            // Check each question's answer
+            for (let q in answers) {
+                const selectedAnswer = document.querySelector(`input[name="${q}"]:checked`);
+                if (selectedAnswer && selectedAnswer.value === answers[q]) {
+                    score++;  // Increment score if the answer is correct
+                }
+            }
+
+            // Display the score
+            const scoreDiv = document.getElementById('score');
+            scoreDiv.textContent = `Your score: ${score} out of 5`;
+
+            // Play the appropriate audio
+            if (score === 4) {
+                playAudio("correct.mp3");
+            } else {
+                playAudio("wrong.mp3");
+            }
+        }
+
+        function playAudio(file) {
+            const audio = new Audio(file);
+            audio.play();
+        }
+    </script>
+</body>
+</html>
