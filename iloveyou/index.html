@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You</title>
+    <style>
+        @font-face {
+            font-family: 'LoveLikeThis';
+            src: url('love-like-this.ttf') format('truetype');
+        }
+
+        body {
+            font-family: 'LoveLikeThis', sans-serif;
+            text-align: center;
+            margin: 0;
+            background-color: #ffeaf2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 150px; 
+            margin: 0;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        .red {
+            color: #ff4d4d; /* Soft red */
+        }
+
+        .pink {
+            color: #ff85b3; /* Warm pink */
+        }
+
+        .gold {
+            color: #ffc107; /* Vibrant gold */
+        }
+
+        /* Animation Keyframes */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <span class="red">I</span> 
+        <span class="pink">LOVE</span> 
+        <span class="gold">YOU</span>
+    </h1>
+</body>
+</html>

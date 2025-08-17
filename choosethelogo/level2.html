@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess the Logo Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+    h1 {
+      margin-top: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    .logo-container {
+      margin-top: 30px;
+    }
+    .logo img {
+      width: 200px;
+      height: 200px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    }
+    .guess-input {
+      margin-top: 20px;
+      padding: 10px;
+      font-size: 18px;
+      width: 60%;
+      max-width: 300px;
+    }
+    .guess-button, .next-level-button {
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+    .guess-button {
+      background-color: #007bff;
+      color: white;
+    }
+    .guess-button:hover {
+      background-color: #0056b3;
+    }
+    .next-level-button {
+      background-color: #28a745;
+      color: white;
+      display: none;
+    }
+    .next-level-button:hover {
+      background-color: #1e7e34;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+  </style>
+</head>
+<body>
+  <h1>Guess the Logo</h1>
+  <div class="logo-container">
+    <div class="logo">
+      <img id="logoImage" src="choose the logo data/level2/Apple.jpg" alt="Logo">
+    </div>
+  </div>
+
+  <input type="text" id="guessInput" class="guess-input" placeholder="Enter your guess here">
+  <button class="guess-button" onclick="checkGuess()">Submit Guess</button>
+
+  <div class="result" id="result"></div>
+
+  <button class="next-level-button" id="nextLevelButton" onclick="nextLevel()">Next Level</button>
+
+  <!-- Audio element for playing 'done.mp3' -->
+  <audio id="correctAudio" src="done.mp3" preload="auto"></audio>
+  <a href="guess the logo.html" target="_blank">main menu</a><br>
+
+  <script>
+    const levels = [
+      {
+        level: 1,
+        logos: [
+          { image: 'level2/Apple.jpg', name: 'Apple' },
+          { image: 'level2/Burger king.jpg', name: 'Burger King' },
+          { image: 'level2/dunkin donuts.jpg', name: 'Dunkin Donuts' },
+          { image: 'level2/ford.jpg', name: 'Ford' },
+          { image: 'level2/Genshin Impact.jpg', name: 'Genshin Impact' },
+          { image: 'level2/Lamborghini.jpg', name: 'Lamborghini' },
+          { image: 'level2/Lenovo.jpg', name: 'Lenovo' },
+          { image: 'level2/m&ms.jpg', name: 'M&Ms' },
+          { image: 'level2/Puregold.jpg', name: 'Puregold' },
+          { image: 'level2/Sony.jpg', name: 'Sony' }
+        ]
+      }
+    ];
+
+    let currentLevel = 0;
+    let currentLogoIndex = 0;
+
+    function checkGuess() {
+      const userGuess = document.getElementById('guessInput').value.trim().toLowerCase();
+      const correctAnswer = levels[currentLevel].logos[currentLogoIndex].name.toLowerCase();
+      const resultElement = document.getElementById('result');
+
+      if (userGuess === correctAnswer) {
+        resultElement.innerText = 'Correct! 🎉';
+        resultElement.style.color = 'limegreen';
+
+        // Play the 'done.mp3' sound when the guess is correct
+        document.getElementById('correctAudio').play();
+
+        setTimeout(nextLogo, 1000);
+      } else {
+        resultElement.innerText = 'Wrong! Try again. ❌';
+        resultElement.style.color = 'red';
+      }
+    }
+
+    function nextLogo() {
+      currentLogoIndex++;
+      if (currentLogoIndex >= levels[currentLevel].logos.length) {
+        document.getElementById('result').innerText = 'Level Complete! 🎉';
+        document.getElementById('result').style.color = 'gold';
+        document.getElementById('nextLevelButton').style.display = 'block';
+        document.getElementById('guessInput').style.display = 'none';
+        document.querySelector('.guess-button').style.display = 'none';
+      } else {
+        loadLogo();
+      }
+    }
+
+    function nextLevel() {
+      currentLevel++;
+      currentLogoIndex = 0;
+
+      if (currentLevel >= levels.length) {
+        document.getElementById('result').innerText = 'Congratulations! You completed all levels! 🎉';
+        document.getElementById('result').style.color = 'gold';
+        document.getElementById('logoImage').style.display = 'none';
+        document.getElementById('nextLevelButton').style.display = 'none';
+        return;
+      }
+
+      document.getElementById('nextLevelButton').style.display = 'none';
+      document.getElementById('guessInput').style.display = 'block';
+      document.querySelector('.guess-button').style.display = 'block';
+      loadLogo();
+    }
+
+    function loadLogo() {
+      document.getElementById('logoImage').src = levels[currentLevel].logos[currentLogoIndex].image;
+      document.getElementById('guessInput').value = '';
+      document.getElementById('result').innerText = '';
+    }
+
+    window.onload = loadLogo;
+  </script>
+</body>
+</html>

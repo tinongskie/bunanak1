@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess the Logo Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f0f0f0;
+      color: #333;
+    }
+    h1 {
+      margin-top: 20px;
+    }
+    .image-container {
+      position: relative;
+      margin-top: 20px;
+    }
+    .image-container img {
+      width: 300px;
+      height: 300px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    .button-container {
+      margin-top: 20px;
+    }
+    button, input[type="text"] {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover, input[type="text"]:focus {
+      background-color: #007bff;
+      color: white;
+    }
+    .next-button, .submit-button {
+      display: none;
+    }
+    .see-button {
+      display: inline-block;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Guess the Logo Game</h1>
+  <div class="image-container">
+    <!-- Censored Image -->
+    <img id="censoredImage" src="level5/censored/aaaaa.png" alt="Censored Logo">
+    <!-- Original Image (hidden initially) -->
+    <img id="originalImage" style="display: none;" src="level5/reveal/aaaaa.jpg" alt="Original Logo">
+  </div>
+
+  <div class="button-container">
+    <!-- Text input for guessing the logo (visible initially) -->
+    <input type="text" id="guessInput" placeholder="Enter your guess here">
+    <!-- See button -->
+    <button id="seeButton" class="see-button" onclick="revealImage()">See</button>
+    <!-- Submit button (hidden initially) -->
+    <button id="submitButton" class="submit-button" onclick="checkGuess()">Submit Guess</button>
+    <!-- Next button (hidden initially) -->
+    <button id="nextButton" class="next-button" onclick="nextImage()">Next</button>
+  </div>
+
+  <div id="result" class="result"></div>
+
+  <script>
+    // Array of logos (censored and original) for the game
+    const logos = [
+      { censored: 'level5/censored/aaaaa.png', original: 'level5/reveal/aaaaa.jpg', name: 'aaaaa' },
+      { censored: 'level5/censored/adobo.png', original: 'level5/reveal/adobo.jpg', name: 'adobo' },
+      { censored: 'level5/censored/calon.png', original: 'level5/reveal/calon.jpg', name: 'calon' },
+      { censored: 'level5/censored/dead bull.png', original: 'level5/reveal/dead bull.jpg', name: 'dead bull' },
+      { censored: 'level5/censored/cheaters.png', original: 'level5/reveal/cheaters.jpg', name: 'cheaters' },
+      { censored: 'level5/censored/fail.png', original: 'level5/reveal/fail.jpg', name: 'fail' },
+      { censored: 'level5/censored/insecurity.png', original: 'level5/reveal/insecurity.jpg', name: 'insecurity' },
+      { censored: 'level5/censored/naiki.png', original: 'level5/reveal/naiki.jpg', name: 'naiki' },
+      { censored: 'level5/censored/nextfix.png', original: 'level5/reveal/nextfix.jpg', name: 'nextfix' },
+      { censored: 'level5/censored/no balance.png', original: 'level5/reveal/no balance.jpg', name: 'no balance' },
+      { censored: 'level5/censored/ohno.png', original: 'level5/reveal/ohno.jpg', name: 'ohno' },
+      { censored: 'level5/censored/pinaka hot.png', original: 'level5/reveal/pinaka hot.jpg', name: 'pinaka hot' },
+      { censored: 'level5/censored/pumba.png', original: 'level5/reveal/pumba.jpg', name: 'pumba' },
+      { censored: 'level5/censored/samething.png', original: 'level5/reveal/samething.jpg', name: 'samething' },
+      { censored: 'level5/censored/singles.png', original: 'level5/reveal/singles.jpg', name: 'singles' },
+      { censored: 'level5/censored/tired.png', original: 'level5/reveal/tired.jpg', name: 'tired' },
+      { censored: 'level5/censored/under_arrest.png', original: 'level5/reveal/under_arrest.jpg', name: 'under arrest' },
+      // Add more logos as needed
+    ];
+
+    let currentLogoIndex = 0;
+
+    function revealImage() {
+      // Show the original image when See button is clicked
+      document.getElementById('originalImage').style.display = 'block';
+      // Hide the See button
+      document.getElementById('seeButton').style.display = 'none';
+      // Show the Submit button and Next button
+      document.getElementById('submitButton').style.display = 'inline-block';
+      document.getElementById('nextButton').style.display = 'inline-block';
+    }
+
+    function checkGuess() {
+      const userGuess = document.getElementById('guessInput').value.trim().toLowerCase();
+      const correctAnswer = logos[currentLogoIndex].name.toLowerCase();
+      const resultElement = document.getElementById('result');
+
+      if (userGuess === correctAnswer) {
+        resultElement.innerText = 'Correct! 🎉';
+        resultElement.style.color = 'limegreen';
+      } else {
+        resultElement.innerText = 'Wrong! Try again. ❌';
+        resultElement.style.color = 'red';
+      }
+
+      // Disable the input and buttons after submitting guess
+      document.getElementById('guessInput').disabled = true;
+      document.getElementById('submitButton').disabled = true;
+    }
+
+    function nextImage() {
+      // Move to the next logo
+      currentLogoIndex++;
+      if (currentLogoIndex >= logos.length) {
+        currentLogoIndex = 0; // Reset to the first logo if it's the last
+      }
+
+      // Update the image sources to show the next censored image
+      document.getElementById('censoredImage').src = logos[currentLogoIndex].censored;
+      document.getElementById('originalImage').src = logos[currentLogoIndex].original;
+
+      // Reset for next round: hide the original image, the result, and Next button, show the See button again
+      document.getElementById('originalImage').style.display = 'none';
+      document.getElementById('nextButton').style.display = 'none';
+      document.getElementById('seeButton').style.display = 'inline-block';
+      document.getElementById('guessInput').value = ''; // Clear the guess input
+      document.getElementById('submitButton').style.display = 'none'; // Hide submit button
+      document.getElementById('result').innerText = ''; // Clear result
+      document.getElementById('guessInput').disabled = false; // Enable input for next guess
+      document.getElementById('submitButton').disabled = false; // Enable submit button
+    }
+  </script>
+</body>
+</html>

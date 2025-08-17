@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MLBB Christmas Clash 🎁</title>
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Russo One', sans-serif;
+      color: #fff;
+      text-align: center;
+    }
+
+    header {
+      padding: 40px 20px 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #ff4;
+      text-shadow: 2px 2px 6px #d00;
+    }
+
+    .countdown {
+      font-size: 2em;
+      margin: 20px 0;
+      color: #0ff;
+    }
+
+    section {
+      background-color: rgba(0, 0, 0, 0.7);
+      margin: 30px auto;
+      padding: 30px;
+      width: 90%;
+      max-width: 800px;
+      border-radius: 20px;
+    }
+
+    .skins img {
+      width: 120px;
+      height: auto;
+      margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #fff;
+    }
+
+    .cta {
+      margin-top: 30px;
+      padding: 15px 30px;
+      background: #28a745;
+      color: #fff;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .cta:hover {
+      background: #1e7e34;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎄 MLBB Christmas Clash 🎁</h1>
+    <p>Join in our event and have a chance to win 300 MLBB dias</p>
+	<p>We will give away 600 dias (300 dias per person) Join now!</p>
+	<p>you can still join until</p>
+    <div class="countdown" id="countdown">Loading countdown...</div>
+  </header>
+
+  <section>
+    <h2>🎁 Event Highlights</h2>
+    <ul style="text-align:left; max-width:600px; margin:auto;">
+      <li>🎉 Join now and have a chance to win 300 Dias</li>
+      <li>❄️ Make sure there is no typo</li>
+      <li>🎅 Winners will be posted here</li>
+      <li>🔥 This event are available until 12-26-25</li>
+    </ul>
+<button class="cta" onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSfolOyRa1fjEGoLBthigWHXiYpSAhgbvTzFLFme6vRsnav7bg/viewform?usp=header'">
+  Join
+</button>
+  </section>
+
+  <footer>
+    <p>This is an unofficial fan-made event page. MLBB is owned by Moonton.</p>
+  </footer>
+
+  <script>
+    // Countdown script
+    const targetDate = new Date("December 23, 2025 00:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        countdownEl.innerHTML = "🎉 It's Christmas Day! 🎉";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+
+      countdownEl.innerHTML = `${days}d ${hours}hs`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
