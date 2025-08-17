@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PC Building Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>PC Building Game</h1>
+  <p>Drag and drop the components onto the motherboard!</p>
+
+  <div class="game-container">
+    <!-- Motherboard Image -->
+    <div class="pc-case">
+      <div id="motherboard" class="motherboard">
+        <img src="components/motherboard.jpg" alt="Motherboard">
+      </div>
+    </div>
+
+    <!-- Components to drag -->
+    <div class="components">
+      <div class="component" draggable="true" data-component="cpu">
+        <img src="components/cpu.jpg" alt="CPU">
+      </div>
+      <div class="component" draggable="true" data-component="ram">
+        <img src="components/ram.png" alt="RAM">
+      </div>
+      <div class="component" draggable="true" data-component="psu">
+        <img src="components/psu.jpg" alt="PSU">
+      </div>
+    </div>
+  </div>
+
+  <div id="result"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
