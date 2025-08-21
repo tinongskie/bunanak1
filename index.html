@@ -93,6 +93,7 @@
     <div class="tabs" id="tabMenu">
         <a href="#" onclick="showContent('home')">Home</a>
 		<a href="#" onclick="showContent('EVENT')">Event</a>
+		<a href="#" onclick="showContent ('Collaborations')">Collaborations</a>
         <a href="#" onclick="showContent('3D videos')">3D videos</a>
         <a href="#" onclick="showContent('games')">games</a>
         <a href="#" onclick="showContent('replay')">replay</a>
@@ -584,6 +585,183 @@ body.dark-mode ul { display: block !important; }
 <body>
   <h1>Redirecting in 5 seconds...</h1>
   <p>If you are not redirected, <a href="EVENT/event.html">click here</a>.</p>
+</body>
+</html>
+</div>
+
+    <div id="Collaborations" class="content active">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok batangnana live schedule</title>
+    <style>
+        @font-face {
+            font-family: 'njnaruto';
+            src: url('njnaruto.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'njnaruto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #ff0050;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            font-size: 2em;
+            margin: 0;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .schedule {
+            flex: 2;
+        }
+
+        .schedule h2 {
+            font-size: 1.8em;
+            color: #ff0050;
+            margin-bottom: 10px;
+        }
+
+        .schedule p, .schedule ul, .schedule li {
+            margin: 10px 0;
+        }
+
+        .schedule ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .schedule li {
+            font-size: 1.1em;
+        }
+
+        .image-container {
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        footer a {
+            color: #ff0050;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .time-box {
+            flex: 1 1 100px;
+            background-color: #ffe6ec;
+            border: 2px solid #ff0050;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 2em;
+            color: #ff0050;
+        }
+
+        .label {
+            font-size: 1em;
+            color: #555;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        button {
+            background-color:#ff0050;
+            color:white;
+            border:none;
+            border-radius:8px;
+            padding:10px 20px;
+            font-family:'njnaruto';
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        button:hover {
+            background-color:#ff3366;
+        }
+
+        #elmightyContent {
+            display:none;
+            margin-top:15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>TikTok Batangnana Live Schedule</h1>
+    </header>
+    <main>
+        <div class="schedule">
+            <h2>Creators</h2>
+            <ul>
+                <li>
+                    <button onclick="toggleElmighty()">Elmighty</button>
+                </li>
+            </ul>
+            <div id="elmightyContent">
+                <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@elmight10/video/7442278719307173121" data-video-id="7442278719307173121" style="max-width: 605px; min-width: 325px; display: block; margin: 0 auto;">
+                    <section>
+                        <a target="_blank" title="@elmight10" href="https://www.tiktok.com/@elmight10">@elmight10</a>
+                        <p>Video owned by Elmighty</p>
+                    </section>
+                </blockquote>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>© 2025 Batangnana</p>
+    </footer>
+
+    <script async src="https://www.tiktok.com/embed.js"></script>
+    <script>
+        function toggleElmighty() {
+            const content = document.getElementById('elmightyContent');
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
 </body>
 </html>
 </div>
