@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Night Sky Hawk Relapse</title>
+  <style>
+    :root {
+      --bg-dark: #333;
+      --text-main: #333;
+      --text-light: #fff;
+    }
+
+    /* === Background image applied to the entire page === */
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      color: var(--text-main);
+      line-height: 1.5;
+
+      /* Replace with your own PNG file */
+      background-image: url("/background.png");
+      background-size: cover;          /* Fill the viewport */
+      background-position: center;     /* Center the image */
+      background-attachment: fixed;    /* Parallax-style effect */
+      background-repeat: no-repeat;
+    }
+
+    /* Semi-transparent overlay for readability */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(244, 244, 244, 0.85); /* light overlay */
+      z-index: -1; /* stays behind everything */
+    }
+
+    header {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      padding: 2rem 1rem;
+      text-align: center;
+      border-bottom: 3px solid rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    nav {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+
+    nav a {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      padding: 0.6rem 1.2rem;
+      border-radius: 0.4rem;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    nav a:hover,
+    nav a:focus {
+      background: #555;
+      outline: none;
+    }
+
+    main {
+      padding: 0 1rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .album {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-top: 2rem;
+    }
+
+    figure.album-item {
+      margin: 0;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #fff;
+    }
+
+    figure.album-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    figure.album-item:hover,
+    figure.album-item:focus-within {
+      transform: scale(1.03);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    figcaption {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      text-align: center;
+      background: #fafafa;
+    }
+
+    footer {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      text-align: center;
+      padding: 1rem;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 0.9rem;
+      border-top: 3px solid rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Night Sky Hawk Relapse</h1>
+  </header>
+
+  <nav>
+    <a href="experience.html" target="_blank" rel="noopener">Visit the Experience</a>
+  </nav>
+
+  <main>
+    <p>Check out the amazing photos and relive the moments.</p>
+
+    <section class="album">
+      <figure class="album-item">
+        <img src="/album1.png" alt="Album photo 1">
+        <figcaption>Album 1</figcaption>
+      </figure>
+      <figure class="album-item">
+        <img src="/album2.png" alt="Album photo 2">
+        <figcaption>Album 2</figcaption>
+      </figure>
+      <figure class="album-item">
+        <img src="/album3.png" alt="Album photo 3">
+        <figcaption>Album 3</figcaption>
+      </figure>
+      <figure class="album-item">
+        <img src="/album4.png" alt="Album photo 4">
+        <figcaption>Album 4</figcaption>
+      </figure>
+      <figure class="album-item">
+        <img src="/album5.png" alt="Album photo 5">
+        <figcaption>Album 5</figcaption>
+      </figure>
+      <figure class="album-item">
+        <img src="/album6.png" alt="Album photo 6">
+        <figcaption>Album 6</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2023 My Website. All rights reserved.
+  </footer>
+
+</body>
+</html>
