@@ -3,944 +3,876 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bunanak Christmas CountDown🎅</title>
-<style>
-    @font-face {
-        font-family: 'big_noodle_titling';
-        src: url('big_noodle_titling.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    body {
-        font-family: 'big_noodle_titling', Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-        transition: background 0.3s, color 0.3s;
-    }
-
-    .menu-container {
-        position: absolute;
-        top: 10px;
-        right: 20px;
-        cursor: pointer;
-        font-size: 24px;
-        background: #333;
-        color: white;
-        padding: 10px;
-        border-radius: 5px;
-    }
-
-    .tabs {
-        display: none;
-        position: absolute;
-        top: 50px;
-        right: 20px;
-        background: white;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        padding: 10px;
-        text-align: right;
-    }
-
-    .tabs a {
-        display: block;
-        text-decoration: none;
-        color: black;
-        padding: 8px 15px;
-    }
-
-    .tabs a:hover {
-        background: #ddd;
-    }
-
-    .content {
-        display: none;
-        padding: 20px;
-    }
-
-    .active {
-        display: block;
-    }
-
-    .settings {
-        margin-top: 20px;
-    }
-
-    .dark-mode {
-        background: #121212;
-        color: white;
-    }
-	
-	#snow-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 9999;
-    width: 100%;
-    height: 100%;
-}
-
-</style>
-</head>
-<body>
-<canvas id="snow-canvas"></canvas>
-
-	
-    <div class="menu-container" onclick="toggleTabs()">&#x22EE;</div>
-    <div class="tabs" id="tabMenu">
-        <a href="#" onclick="showContent('home')">Home</a>
-		<a href="#" onclick="showContent('EVENT')">Event</a>
-		<a href="#" onclick="showContent ('Collaborations')">Collaborations</a>
-        <a href="#" onclick="showContent('3D videos')">3D videos</a>
-        <a href="#" onclick="showContent('games')">games</a>
-        <a href="#" onclick="showContent('replay')">replay</a>
-    </div>
-
-
-
-    <div id="home" class="content active">
-        <!DOCTYPE html>
-
-        <html lang="en">
-
-        <head>
-
-            <meta charset="UTF-8">
-
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-            <title>TikTok batangnana live schedule</title>
-
-<style>
-
-
-    @font-face {
-        font-family: 'njnaruto';
-        src: url('njnaruto.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    body {
-        font-family: 'njnaruto', Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f9f9f9;
-        color: #333;
-    }
-
-    header {
-        background-color: #ff0050;
-        color: white;
-        text-align: center;
-        padding: 20px 0;
-    }
-
-        header h1 {
-            font-size: 2em;
-            margin: 0;
-        }
-
-    main {
-        max-width: 800px;
-        margin: 20px auto;
-        padding: 20px;
-        background: white;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    .schedule {
-        flex: 2;
-    }
-
-        .schedule h2 {
-            font-size: 1.8em;
-            color: #ff0050;
-            margin-bottom: 10px;
-        }
-
-        .schedule p, .schedule ul, .schedule li {
-            margin: 10px 0;
-        }
-
-        .schedule ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .schedule li {
-            font-size: 1.1em;
-        }
-
-    .image-container {
-        text-align: center;
-    }
-
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-        }
-
-    footer {
-        text-align: center;
-        padding: 10px 0;
-        margin-top: 20px;
-        background-color: #333;
-        color: white;
-    }
-
-        footer a {
-            color: #ff0050;
-            text-decoration: none;
-        }
-
-            footer a:hover {
-                text-decoration: underline;
-            }
-
-    @media (max-width: 768px) {
-        main {
-            flex-direction: column;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 1.8em;
-        }
-
-        .schedule {
-            flex: 1;
-        }
-
-            .schedule h2 {
-                font-size: 1.5em;
-            }
-
-        footer {
-            font-size: 0.9em;
-        }
-    }
-
-    @media (max-width: 480px) {
-        header h1 {
-            font-size: 1.5em;
-        }
-
-        .schedule h2 {
-            font-size: 1.2em;
-        }
-
-        .schedule li {
-            font-size: 1em;
-        }
-
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        margin: 0;
-        height: 200vh; /* Extend page height to enable scrolling */
-        font-family: 'LOVELETTER', Arial, sans-serif;
-    }
-
-    #image-container {
-        position: fixed; /* Keeps the image fixed relative to the viewport */
-        top: 75%; /* Start the image lower on the viewport */
-        right: 0; /* Position the image on the right side */
-        transform: translateY(-50%); /* Adjust for vertical centering */
-        transition: opacity 0.3s ease;
-    }
-
-        #image-container img {
-            width: 200px; /* Adjust the image size */
-            height: auto;
-        }
-		
-		.time-box {
-    flex: 1 1 100px;
-    background-color: #ffe6ec;
-    border: 2px solid #ff0050;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-}
-
-.time-box span {
-    display: block;
-    font-size: 2em;
-    color: #ff0050;
-}
-
-.label {
-    font-size: 1em;
-    color: #555;
-    text-transform: uppercase;
-    margin-top: 5px;
-}
-
-/* ---------- base colors ---------- */
-body {
-  background: #ffffff;
-  color: #181818;
-}
-
-/* ---------- dark‑mode overrides ---------- */
-body.dark-mode {
-  background: #111827;
-  color: #181818;
-}
-
-body.dark-mode a {
-  color: #0000FF;
-}
-
-/* SCHEDULE — siguradong nakikita */
-body.dark-mode ul,
-body.dark-mode ul li,
-body.dark-mode ul li strong,
-body.dark-mode h4,
-body.dark-mode p {
-  color: inherit;               /* gamitin ang #f3f4f6 sa itaas */
-}
-
-/* kung sakaling may nag‑hide nang di‑sinasadya */
-body.dark-mode ul { display: block !important; }
-
-</style>
-
-        </head>
-<script>
-    function updateCountdown() {
-        const now = new Date();
-        const target = new Date(now.getFullYear(), 11, 25); // Dec 25
-
-        if (now > target) {
-            target.setFullYear(target.getFullYear() + 1); // next year if already passed
-        }
-
-        const totalSeconds = Math.floor((target - now) / 1000);
-        const months = target.getMonth() - now.getMonth() + (target.getFullYear() - now.getFullYear()) * 12;
-        const days = Math.floor((target - now) / (1000 * 60 * 60 * 24)) % 30;
-        const hours = Math.floor((totalSeconds % (60 * 60 * 24)) / 3600);
-        const minutes = Math.floor((totalSeconds % 3600) / 60);
-        const seconds = totalSeconds % 60;
-
-        document.getElementById('months').textContent = months;
-        document.getElementById('days').textContent = days;
-        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-</script>
-
-<script>
-    function toggleTabs() {
-        var menu = document.getElementById("tabMenu");
-        menu.style.display = menu.style.display === "block" ? "none" : "block";
-    }
-
-    function showContent(tabId) {
-        var contents = document.querySelectorAll('.content');
-        contents.forEach(content => content.classList.remove('active'));
-        document.getElementById(tabId).classList.add('active');
-    }
-
-    function toggleDarkMode() {
-        var body = document.body;
-        if (body.classList.contains("dark-mode")) {
-            body.classList.remove("dark-mode");
-            localStorage.setItem("theme", "light");
-        } else {
-            body.classList.add("dark-mode");
-            localStorage.setItem("theme", "dark");
-        }
-    }
-
-    window.onload = function () {
-        if (localStorage.getItem("theme") === "dark") {
-            document.body.classList.add("dark-mode");
-        }
-    }
-</script>
-        <body>
-
-		
-
-
-
-
-
-            <div id="image-container">
-
-                <img src="background/background.png" alt="Background">
-
-            </div>
-
-
-
-            <script>
-
-                const imageContainer = document.getElementById('image-container');
-
-
-
-                window.addEventListener('scroll', () => {
-
-                    const scrollY = window.scrollY; // Get the vertical scroll position
-
-
-
-                    // Adjust the image position based on scroll
-
-                    imageContainer.style.transform = `translateY(calc(-50% + ${scrollY}px))`;
-
-                });
-
-
-
-
-
-
-                const lastUpdated = new Date('2025-09-16T01:16:00');
-
-                function calculateTimePassed(lastUpdated) {
-                    const now = new Date();
-                    const diffInMilliseconds = now - lastUpdated;
-                    const diffInHours = Math.floor(diffInMilliseconds / (1000 * 60 * 60));
-                    const diffInDays = Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24));
-
-                    let timePassedText = `${diffInHours} hours ago`;
-                    if (diffInDays >= 1) {
-                        timePassedText = `${diffInDays} day(s) ago`;
-                    }
-
-                    return timePassedText;
-                }
-
-                document.addEventListener("DOMContentLoaded", function () {
-                    document.getElementById('lastUpdated').textContent = lastUpdated.toLocaleString();
-                    document.getElementById('timePassed').textContent = calculateTimePassed(lastUpdated);
-                });
-
-
-            </script>
-
-
-
-            <header>
-
-                <h1>Batangnana TikTok Live Schedule</h1>
-
-            </header>
-
-            <main>
-
-                <div class="schedule">
-
-                    <h2>Upcoming Lives</h2>
-
-                    <p>Stay tuned for my TikTok Live streams! Here's when you can catch me:</p>
-
-                    <ul>
-
-
-                        <li><strong>Monday:</strong> 10:30 AM - 12:00 PM</li>
-
-                        <li><strong>Tuesday:</strong> 10:30 AM - 12:00 PM</li>
-
-                        <li><strong>Wednesday:</strong> 10:30 AM - 12:00 PM</li>
-
-                        <li><strong>Thursday:</strong> 10:30 PM - 12:00 PM</li>
-
-                        <li><strong>Friday:</strong> 10:30 AM - 12:00 PM</li>
-
-                        <li><strong>Saturday:</strong> 10:30 PM - 12:00 PM</li>
-
-                    </ul>
-                    <h4><a href="https://www.tiktok.com/@batangnana/live?enter_from_merge=share&enter_method=share_copy_link" target=_self">watch live</a></h4>
-					<p>due to thyroid problems upcoming live streams are postponed.</p>
-					<p>Schedule updated last 08/21/2025 (Thursday)</p>
-
-                    <p>Make sure to follow me on TikTok for updates and surprises!</p>
-
-                </div>
-
-                <div class="image-container">
-
-                    <img src="batangnana.png" alt="Batangnana Live Stream">
-
-                </div>
-            </main>
-			<div>
-			    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
-</div>
-
-<h4><a href="https://tinongskie.github.io/bunanak1/BUNANAK_EMOTE/emote.html" target=_self">Download a custom emote</a></h4>
-
-                <p>memes</p>
-
-                <div class="image-container">
-
-                    <img src="meme1.jpg" alt="Batangnana Live Stream">
-
-                    <p>Nana asked meta ai if can you be my lover, Meta AI said ask the turtle so nana asked the turtle</p>
-
-                </div>
-				
-				<div class="image-container">
-
-                    <img src="nana selfie.png" alt="nana selfie">
-					<p>toggle dark mode to see the effects.</p>
-					
-					</div>
-
-                <p>pose ni nana</p>
-
-                <div class="image-container">
-
-                    <img src="pose1.jpg" alt="pose ni nana">
-
-                </div>
-
-                <a href="pose1.jpg" download="pose1.jpg">Download</a>
-
-                <div class="image-container">
-
-                    <img src="awra ni bunanak.jpg" alt="pose ni nana">
-
-                </div>
-
-                <a href="awra ni bunanak.jpg" download="awra ni bunanak.jpg">Download</a>
-
-                <div class="image-container">
-
-                    <img src="HAHAHAHAHA cute.jpg" alt="pose ni nana">
-
-                </div>
-
-                <a href="HAHAHAHAHA cute.jpg" download="HAHAHAHAHA cute.jpg">Download</a>
-
-
-
-                <div class="schedule">
-    <h2>Countdown to December 25 🎄</h2>
-    <div id="countdown" style="display: flex; flex-wrap: wrap; gap: 15px;">
-        <div class="time-box">
-            <span id="months">0</span>
-            <div class="label">Months</div>
-        </div>
-        <div class="time-box">
-            <span id="days">0</span>
-            <div class="label">Days</div>
-        </div>
-        <div class="time-box">
-            <span id="hours">00</span>
-            <div class="label">Hours</div>
-        </div>
-        <div class="time-box">
-            <span id="minutes">00</span>
-            <div class="label">Minutes</div>
-        </div>
-        <div class="time-box">
-            <span id="seconds">00</span>
-            <div class="label">Seconds</div>
-        </div>
-    </div>
-</div>
-
-
-
-            </center>
-
-            <footer>
-
-                <p>© 2025 My TikTok Lives | Connect with me on <a href="https://www.tiktok.com/@batangnana" target="_self">TikTok</a></p>
-
-                <p>Follow me on  <a href="https://www.facebook.com/profile.php?id=100092747559301" target="_self">Facebook</a></p>
-				
-				<p>Support me on <a href="https://www.roblox.com/games/133934093860278/Night-sky-hawk-relapse" target=_self">Roblox</a></p>
-				
-				<p>Check my site <a href="https://tinongskie.github.io/bunanak1/roblox/index.html" target=_self">Roblox Page</a></p>
-
-                <p>Website updated on <span id="lastUpdated"></span> (<span id="timePassed"></span>)</p>
-
-            </footer>
-
-        </body>
-
-    </html>
-</div>
-<div id="EVENT" class="content">
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-</head>
-<body>
-  <h1>Redirecting in 5 seconds...</h1>
-  <p>If you are not redirected, <a href="EVENT/event.html">click here</a>.</p>
-</body>
-</html>
-</div>
-
-    <div id="Collaborations" class="content active">
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collaborations</title>
+    <title>Bunanak - TikTok Content Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @font-face {
-            font-family: 'njnaruto';
-            src: url('njnaruto.ttf') format('truetype');
+            font-family: 'big_noodle_titling';
+            src: url('big_noodle_titling.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
-
+        
+        :root {
+            --primary: #ff0050;
+            --secondary: #333;
+            --accent: #007BFF;
+            --light: #f9f9f9;
+            --dark: #121212;
+            --gray: #ddd;
+            --card-bg: #ffffff;
+            --text: #333333;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark-mode {
+            --primary: #ff3377;
+            --secondary: #f0f0f0;
+            --accent: #4da6ff;
+            --light: #1e1e1e;
+            --dark: #000000;
+            --gray: #444;
+            --card-bg: #222222;
+            --text: #f0f0f0;
+            --shadow: rgba(255, 255, 255, 0.05);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: 'njnaruto', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
+            font-family: 'big_noodle_titling', Arial, sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            transition: background-color 0.3s, color 0.3s;
+            line-height: 1.6;
         }
-
-        header {
-            background-color: #ff0050;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        header h1 {
-            font-size: 2em;
-            margin: 0;
-        }
-
-        main {
-            max-width: 800px;
-            margin: 20px auto;
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), #ff6b9d);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
             display: flex;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+        }
+        
+        /* Navigation */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin: 0 15px;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .nav-menu a:hover, .nav-menu a.active {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 30px 0;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Home Section */
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(rgba(255, 0, 80, 0.1), transparent);
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .schedule-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .schedule-card h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .schedule-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .schedule-item {
+            background: rgba(255, 0, 80, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .schedule-item strong {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .live-link {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(255, 0, 80, 0.3);
+        }
+        
+        .live-link:hover {
+            background: #ff003c;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 0, 80, 0.4);
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
+            margin-top: 30px;
         }
-
-        .schedule {
-            flex: 2;
+        
+        .gallery-item {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: transform 0.3s;
         }
-
-        .schedule h2 {
-            font-size: 1.8em;
-            color: #ff0050;
-            margin-bottom: 10px;
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
         }
-
-        .schedule p, .schedule ul, .schedule li {
-            margin: 10px 0;
+        
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
         }
-
-        .schedule ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .schedule li {
-            font-size: 1.1em;
-        }
-
-        .image-container {
+        
+        .gallery-item .caption {
+            padding: 15px;
             text-align: center;
         }
-
-        .image-container img {
-            max-width: 100%;
-            height: auto;
+        
+        .download-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: background 0.3s;
         }
-
-        footer {
-            text-align: center;
-            padding: 10px 0;
+        
+        .download-btn:hover {
+            background: #0056b3;
+        }
+        
+        /* Games Section */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
             margin-top: 20px;
-            background-color: #333;
+        }
+        
+        .game-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: all 0.3s;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px var(--shadow);
+        }
+        
+        .game-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .game-card a {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+        
+        .game-card a:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+        
+        /* 3D Videos Section */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .video-item {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+        
+        .video-item h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        video {
+            width: 100%;
+            border-radius: 8px;
+        }
+        
+        /* Collaborations Section */
+        .collaborations {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px var(--shadow);
+            margin: 30px 0;
+        }
+        
+        .collaborations h2 {
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .creator-card {
+            background: rgba(255, 0, 80, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .creator-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .toggle-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: 'big_noodle_titling', Arial, sans-serif;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .toggle-btn:hover {
+            background: #ff003c;
+            transform: scale(1.05);
+        }
+        
+        .creator-content {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .creator-content.active {
+            display: block;
+        }
+        
+        /* Replay Section */
+        .video-container {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px var(--shadow);
+            margin-bottom: 30px;
+        }
+        
+        .video-container h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        #miniMs {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 30px;
+            font-weight: bold;
+            z-index: 1000;
+            font-family: 'big_noodle_titling', Arial, sans-serif;
+        }
+        
+        #popup {
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            background: rgba(255, 0, 0, 0.8);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+            z-index: 1000;
+            max-width: 300px;
+            font-family: 'big_noodle_titling', Arial, sans-serif;
+        }
+        
+        /* Settings Section */
+        .settings-panel {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px var(--shadow);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .settings-panel h2 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            background: var(--gray);
+            border-radius: 30px;
+            padding: 5px;
+            margin: 20px 0;
+        }
+        
+        .theme-toggle input {
+            display: none;
+        }
+        
+        .theme-toggle label {
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .theme-toggle input:checked + label {
+            background: var(--primary);
             color: white;
         }
-
+        
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+        
         footer a {
-            color: #ff0050;
+            color: var(--accent);
             text-decoration: none;
         }
-
+        
         footer a:hover {
             text-decoration: underline;
         }
-
-        .time-box {
-            flex: 1 1 100px;
-            background-color: #ffe6ec;
-            border: 2px solid #ff0050;
-            border-radius: 10px;
-            padding: 10px;
-            text-align: center;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                background: var(--secondary);
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                padding: 20px;
+                box-shadow: 0 5px 10px var(--shadow);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-menu li {
+                margin: 10px 0;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .schedule-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
         }
-
-        .time-box span {
-            display: block;
-            font-size: 2em;
-            color: #ff0050;
-        }
-
-        .label {
-            font-size: 1em;
-            color: #555;
-            text-transform: uppercase;
-            margin-top: 5px;
-        }
-
-        button {
-            background-color:#ff0050;
-            color:white;
-            border:none;
-            border-radius:8px;
-            padding:10px 20px;
-            font-family:'njnaruto';
-            cursor:pointer;
-            transition:0.3s;
-        }
-
-        button:hover {
-            background-color:#ff3366;
-        }
-
-        #elmightyContent {
-            display:none;
-            margin-top:15px;
+        
+        @media (max-width: 480px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 10px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .schedule-card {
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Header with Navigation -->
     <header>
-        <h1>TikTok Batangnana Live Schedule</h1>
-    </header>
-    <main>
-        <div class="schedule">
-            <h2>Creators</h2>
-            <ul>
-                <li>
-                    <button onclick="toggleElmighty()">Elmighty</button>
-                </li>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-fire"></i>
+                BUNANAK
+            </div>
+            <div class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#" class="nav-link active" data-tab="home">Home</a></li>
+                <li><a href="#" class="nav-link" data-tab="event">Event</a></li>
+                <li><a href="#" class="nav-link" data-tab="collaborations">Collaborations</a></li>
+                <li><a href="#" class="nav-link" data-tab="3D-videos">3D Videos</a></li>
+                <li><a href="#" class="nav-link" data-tab="games">Games</a></li>
+                <li><a href="#" class="nav-link" data-tab="replay">Replay</a></li>
             </ul>
-            <div id="elmightyContent">
-                <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@elmight10/video/7442278719307173121" data-video-id="7442278719307173121" style="max-width: 605px; min-width: 325px; display: block; margin: 0 auto;">
-                    <section>
-                        <a target="_blank" title="@elmight10" href="https://www.tiktok.com/@elmight10">@elmight10</a>
-                        <p>Video owned by Elmighty</p>
-                    </section>
-                </blockquote>
+        </div>
+    </header>
+
+    <!-- Tab Content Sections -->
+    <div class="container">
+        <!-- Home Tab -->
+        <div id="home" class="tab-content active">
+            <div class="hero">
+                <h1>Batangnana TikTok Live Schedule</h1>
+                <p>Stay tuned for my TikTok Live streams! Here's when you can catch me:</p>
+            </div>
+            
+            <div class="schedule-card">
+                <h2>Upcoming Lives</h2>
+                <div class="schedule-list">
+                    <div class="schedule-item">
+                        <strong>Monday</strong>
+                        10:30 AM - 12:00 PM
+                    </div>
+                    <div class="schedule-item">
+                        <strong>Tuesday</strong>
+                        10:30 AM - 12:00 PM
+                    </div>
+                    <div class="schedule-item">
+                        <strong>Wednesday</strong>
+                        10:30 AM - 12:00 PM
+                    </div>
+                    <div class="schedule-item">
+                        <strong>Thursday</strong>
+                        10:30 PM - 12:00 PM
+                    </div>
+                    <div class="schedule-item">
+                        <strong>Friday</strong>
+                        10:30 AM - 12:00 PM
+                    </div>
+                    <div class="schedule-item">
+                        <strong>Saturday</strong>
+                        10:30 PM - 12:00 PM
+                    </div>
+                </div>
+                
+                <a href="https://www.tiktok.com/@batangnana/live?enter_from_merge=share&enter_method=share_copy_link" class="live-link" target="_blank">
+                    <i class="fas fa-play-circle"></i> Watch Live Now
+                </a>
+                
+                <p><strong>Note:</strong> Due to thyroid problems, upcoming live streams are postponed.</p>
+                <p>Schedule updated last 08/21/2025 (Thursday)</p>
+                <p>Make sure to follow me on TikTok for updates and surprises!</p>
+            </div>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="batangnana.png" alt="Batangnana Live Stream">
+                    <div class="caption">
+                        <p>Batangnana Live Stream</p>
+                        <a href="batangnana.png" download class="download-btn">Download</a>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="meme1.jpg" alt="Memes">
+                    <div class="caption">
+                        <p>Nana asked meta ai if can you be my lover, Meta AI said ask the turtle so nana asked the turtle</p>
+                        <a href="meme1.jpg" download class="download-btn">Download</a>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="nana selfie.png" alt="Nana Selfie">
+                    <div class="caption">
+                        <p>Nana Selfie</p>
+                        <a href="nana selfie.png" download class="download-btn">Download</a>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="pose1.jpg" alt="pose ni nana">
+                    <div class="caption">
+                        <p>pose ni nana</p>
+                        <a href="pose1.jpg" download class="download-btn">Download</a>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="awra ni bunanak.jpg" alt="pose ni nana">
+                    <div class="caption">
+                        <p>awra ni bunanak</p>
+                        <a href="awra ni bunanak.jpg" download class="download-btn">Download</a>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="HAHAHAHAHA cute.jpg" alt="pose ni nana">
+                    <div class="caption">
+                        <p>HAHAHAHAHA cute</p>
+                        <a href="HAHAHAHAHA cute.jpg" download class="download-btn">Download</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <h3>More Content</h3>
+                <p><a href="https://tinongskie.github.io/bunanak1/BUNANAK_EMOTE/emote.html" class="live-link" target="_blank">Download Custom Emote</a></p>
+                <p>Toggle dark mode to see special effects!</p>
             </div>
         </div>
-    </main>
-    <footer>
-        <p>© 2025 Batangnana</p>
-    </footer>
-
-    <script async src="https://www.tiktok.com/embed.js"></script>
-    <script>
-        function toggleElmighty() {
-            const content = document.getElementById('elmightyContent');
-            content.style.display = content.style.display === 'block' ? 'none' : 'block';
-        }
-    </script>
-</body>
-</html>
-</div>
-<div id="3D videos" class="content">
-    <h2>3D Videos</h2>
-    <iframe src="3dvideos.html" width="100%" height="600px" style="border: none;"></iframe>
-</div>
-<div id="games" class="content">
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>GAMES</title>
-<style>
-    @font-face {
-        font-family: 'big_noodle_titling';
-        src: url('big_noodle_titling.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    body {
-        font-family: 'big_noodle_titling', Arial, sans-serif;
-        text-align: center;
-        margin: 0;
-        padding: 0;
-        background-color: #f0f8ff;
-    }
-
-    h1 {
-        color: #333;
-        margin-top: 50px;
-    }
-
-    p {
-        color: #555;
-    }
-
-    a {
-        font-size: 20px;
-        color: #007BFF;
-        text-decoration: none;
-        padding: 10px 20px;
-        margin: 10px;
-        border-radius: 5px;
-        transition: all 0.3s ease;
-    }
-
-        a:hover {
-            background-color: #007BFF;
-            color: #fff;
-            transform: scale(1.1);
-        }
-
-    .container {
-        margin-top: 50px;
-    }
-</style>
-    </head>
-    <body>
-        <h1>You can choose any games here</h1>
-        <p>By the way welcome User! any games can't record your personal data or personal information</p>
-
-        <div class="container">
-            <center>
-                <a href="PCgames.html" target="_blank">PC games</a><br>
-            </center>
-            <center>
-                <a href="TODentrance.html" target="_blank">Truth Or Dare (TAGALOG)</a>
-            </center>
-            <center>
-                <a href="PCpicturequizgame.html" target="_blank">Identify the pc parts</a>
-            </center>
-            <center>
-                <a href="buildinggame.html" target="_blank">PC building game</a>
-            </center>
-            <center>
-                <a href="MLccquizgame.html" target="_blank">ML quiz game</a>
-            </center>
-            <center>
-                <a href="guess the logo.html" target="_blank">guess the logo (BETA)</a>
-            </center>
-            <center>
-                <a href="MahalKita.html" target="_blank">Mahal kita (CONFESS)</a>
-            </center>
-            <center>
-                <a href="nointernet.html" target="_blank">no internet meme</a>
-            </center>
-
-
+        
+        <!-- Event Tab -->
+        <div id="event" class="tab-content">
+            <div class="schedule-card">
+                <h2>Special Events</h2>
+                <p>Check back soon for upcoming events and special livestreams!</p>
+                
+                <div style="margin-top: 30px;">
+                    <h3>Redirecting in 5 seconds...</h3>
+                    <p>If you are not redirected, <a href="EVENT/event.html" class="live-link">click here</a>.</p>
+                </div>
+            </div>
         </div>
-    </body>
-</html>
-</div>
-<div id="replay" class="content">
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Archive.org Video Player</title>
-<style>
-    body {
-        font-family: 'big_noodle_titling', Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 20px;
-    }
-
-    h4 {
-        margin-top: 40px;
-        color: #333;
-    }
-
-    video {
-        display: block;
-        margin: 0 auto 20px auto;
-    }
-
-    #miniMs {
-        position: fixed;
-        top: 10px;
-        right: 10px;
-        font-size: 14px;
-        font-weight: bold;
-        background: rgba(255, 255, 255, 0.8);
-        padding: 5px 10px;
-        border-radius: 5px;
-        font-family: 'njnaruto', Arial, sans-serif;
-    }
-
-    #popup {
-        position: fixed;
-        top: 40px;
-        right: 10px;
-        font-size: 12px;
-        background: rgba(0, 0, 0, 0.8);
-        color: #fff;
-        padding: 8px 12px;
-        border-radius: 5px;
-        display: none;
-        font-family: 'njnaruto', Arial, sans-serif;
-    }
-</style>
-    </head>
-
-    <body>
-        <div id="miniMs">MS: 0</div>
-        <div id="popup">Bad internet speed due to IA server, expect long loading videos</div>
-
-        <h4>TIKTOK_LIVE_REPLAY-2025-02-16-19-41-38</h4>
-        <video controls>
-            <source src="https://archive.org/download/tiktok-live-replay-2025-02-16-19-41-38/TIKTOK_LIVE_REPLAY-2025-02-16-19-41-38.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-
-        <h4>Tik_Tok_Live_Replay-2025-02-16-22-50-34</h4>
-        <video controls>
-            <source src="https://archive.org/download/tik-tok-live-replay-2025-02-16-22-50-34/Tik_Tok_Live_Replay-2025-02-16-22-50-34.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-
-        <h4>Tik_Tok_Live_Replay-2025-03-03-10-34-47</h4>
-        <video controls>
-            <source src="https://archive.org/download/tik-tok-live-replay-2025-03-03-10-34-47/Tik_Tok_Live_Replay-2025-03-03-10-34-47.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-
-        <script>
+        
+        <!-- Collaborations Tab -->
+        <div id="collaborations" class="tab-content">
+            <div class="collaborations">
+                <h2>Creator Collaborations</h2>
+                
+                <div class="creator-card">
+                    <h3>Elmighty</h3>
+                    <button class="toggle-btn" onclick="toggleCreator('elmighty')">Show Collaboration</button>
+                    <div id="elmighty-content" class="creator-content">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@elmight10/video/7442278719307173121" data-video-id="7442278719307173121" style="max-width: 605px; min-width: 325px; display: block; margin: 0 auto;">
+                            <section>
+                                <a target="_blank" title="@elmight10" href="https://www.tiktok.com/@elmight10">@elmight10</a>
+                                <p>Video owned by Elmighty</p>
+                            </section>
+                        </blockquote>
+                    </div>
+                </div>
+                
+                <div class="creator-card">
+                    <h3>Another Creator</h3>
+                    <button class="toggle-btn" onclick="toggleCreator('another')">Show Collaboration</button>
+                    <div id="another-content" class="creator-content">
+                        <p>Details about another collaboration will appear here.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 3D Videos Tab -->
+        <div id="3D-videos" class="tab-content">
+            <div class="schedule-card">
+                <h2>3D Videos Collection</h2>
+                <iframe src="3dvideos.html" width="100%" height="600px" style="border: none;"></iframe>
+            </div>
+        </div>
+        
+        <!-- Games Tab -->
+        <div id="games" class="tab-content">
+            <div class="hero">
+                <h1>Game Center</h1>
+                <p>Choose from our collection of fun games. All games are safe and don't collect personal information.</p>
+            </div>
+            
+            <div class="games-grid">
+                <div class="game-card">
+                    <i class="fas fa-desktop"></i>
+                    <h3>PC Games</h3>
+                    <p>Classic PC games for all ages</p>
+                    <a href="PCgames.html" target="_blank">Play Now</a>
+                </div>
+                
+                <div class="game-card">
+                    <i class="fas fa-question-circle"></i>
+                    <h3>Truth Or Dare</h3>
+                    <p>Tagalog version of the classic party game</p>
+                    <a href="TODentrance.html" target="_blank">Play Now</a>
+                </div>
+                
+                <div class="game-card">
+                    <i class="fas fa-microchip"></i>
+                    <h3>PC Parts Quiz</h3>
+                    <p>Test your knowledge of computer components</p>
+                    <a href="PCpicturequizgame.html" target="_blank">Play Now</a>
+                </div>
+                
+                <div class="game-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>PC Building Game</h3>
+                    <p>Build your dream computer</p>
+                    <a href="buildinggame.html" target="_blank">Play Now</a>
+                </div>
+                
+                <div class="game-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile Legends Quiz</h3>
+                    <p>Test your ML knowledge</p>
+                    <a href="MLccquizgame.html" target="_blank">Play Now</a>
+                </div>
+                
+                <div class="game-card">
+                    <i class="fas fa-icons"></i>
+                    <h3>Guess the Logo</h3>
+                    <p>Beta version - Guess brand logos</p>
+                    <a href="guess the logo.html" target="_blank">Play Now</a>
+                </div>
+                
+                <div class="game-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Mahal Kita (Confess)</h3>
+                    <p>Express your feelings</p>
+                    <a href="MahalKita.html" target="_blank">Play Now</a>
+                </div>
+                
+                <div class="game-card">
+                    <i class="fas fa-wifi"></i>
+                    <h3>No Internet Meme</h3>
+                    <p>Classic offline game</p>
+                    <a href="nointernet.html" target="_blank">Play Now</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Replay Tab -->
+        <div id="replay" class="tab-content">
+            <div id="miniMs">MS: 0</div>
+            <div id="popup">Bad internet speed due to IA server, expect long loading videos</div>
+            
+            <div class="video-container">
+                <h3>TIKTOK_LIVE_REPLAY-2025-02-16-19-41-38</h3>
+                <video controls>
+                    <source src="https://archive.org/download/tiktok-live-replay-2025-02-16-19-41-38/TIKTOK_LIVE_REPLAY-2025-02-16-19-41-38.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+            <div class="video-container">
+                <h3>Tik_Tok_Live_Replay-2025-02-16-22-50-34</h3>
+                <video controls>
+                    <source src="https://archive.org/download/tik-tok-live-replay-2025-02-16-22-50-34/Tik_Tok_Live_Replay-2025-02-16-22-50-34.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+            <div class="video-container">
+                <h3>Tik_Tok_Live_Replay-2025-03-03-10-34-47</h3>
+                <video controls>
+                    <source src="https://archive.org/download/tik-tok-live-replay-2025-03-03-10-34-47/Tik_Tok_Live_Replay-2025-03-03-10-34-47.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 My TikTok Lives | Connect with me on <a href="https://www.tiktok.com/@batangnana" target="_blank">TikTok</a></p>
+        <p>Follow me on <a href="https://www.facebook.com/profile.php?id=100092747559301" target="_blank">Facebook</a></p>
+        <p>Support me on <a href="https://www.roblox.com/games/133934093860278/Night-sky-hawk-relapse" target="_blank">Roblox</a></p>
+        <p>Check my site <a href="https://tinongskie.github.io/bunanak1/roblox/index.html" target="_blank">Roblox Page</a></p>
+        <p>Website updated on <span id="lastUpdated">September 16, 2025 1:16 AM</span> (<span id="timePassed">2 days ago</span>)</p>
+    </footer>
+    
+    <script>
+        // Tab Navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(item => {
+                    item.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Show corresponding tab content
+                const tabId = this.getAttribute('data-tab');
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Mobile Menu Toggle
+        document.getElementById('mobileToggle').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+        
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+        }
+        
+        // Check for saved theme preference
+        window.addEventListener('DOMContentLoaded', () => {
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+            }
+        });
+        
+        // Creator toggle
+        function toggleCreator(id) {
+            const content = document.getElementById(`${id}-content`);
+            content.classList.toggle('active');
+        }
+        
+        // Mini ping for replay section
+        function startMiniPing() {
             const miniMs = document.getElementById('miniMs');
             const popup = document.getElementById('popup');
             let popupShown = false;
-
+            
             function showPopupOnce() {
                 if (!popupShown) {
                     popupShown = true;
@@ -950,37 +882,57 @@ body.dark-mode ul { display: block !important; }
                     }, 5000);
                 }
             }
-
-            function startMiniPing() {
-                async function updateMiniPing() {
-                    const start = performance.now();
-                    const img = new Image();
-                    img.src = "https://www.archive.org/favicon.ico?_=" + Date.now();
-                    img.onload = img.onerror = function () {
-                        const end = performance.now();
-                        let ms = Math.round(end - start);
-                        if (ms > 1000) ms = 999;
-
-                        miniMs.textContent = `MS: ${ms}`;
-
-                        if (ms <= 99) {
-                            miniMs.style.color = 'green';
-                        } else if (ms <= 300) {
-                            miniMs.style.color = 'orange';
-                        } else {
-                            miniMs.style.color = 'red';
-                            showPopupOnce();
-                        }
-
-                        setTimeout(updateMiniPing, 1000);
-                    };
-                }
-                updateMiniPing();
+            
+            function updateMiniPing() {
+                const start = performance.now();
+                const img = new Image();
+                img.src = "https://www.archive.org/favicon.ico?_=" + Date.now();
+                img.onload = img.onerror = function () {
+                    const end = performance.now();
+                    let ms = Math.round(end - start);
+                    if (ms > 1000) ms = 999;
+                    miniMs.textContent = `MS: ${ms}`;
+                    if (ms <= 99) {
+                        miniMs.style.background = 'rgba(0, 200, 0, 0.7)';
+                    } else if (ms <= 300) {
+                        miniMs.style.background = 'rgba(255, 165, 0, 0.7)';
+                    } else {
+                        miniMs.style.background = 'rgba(255, 0, 0, 0.7)';
+                        showPopupOnce();
+                    }
+                    setTimeout(updateMiniPing, 1000);
+                };
             }
-
-            window.onload = startMiniPing;
-        </script>
-    </body>
+            
+            updateMiniPing();
+        }
+        
+        // Time calculation
+        function calculateTimePassed(lastUpdated) {
+            const now = new Date();
+            const diffInMilliseconds = now - lastUpdated;
+            const diffInHours = Math.floor(diffInMilliseconds / (1000 * 60 * 60));
+            const diffInDays = Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24));
+            let timePassedText = `${diffInHours} hours ago`;
+            if (diffInDays >= 1) {
+                timePassedText = `${diffInDays} day(s) ago`;
+            }
+            return timePassedText;
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            // Start mini ping
+            startMiniPing();
+            
+            // Set last updated time
+            const lastUpdated = new Date('2025-09-16T01:16:00');
+            document.getElementById('lastUpdated').textContent = lastUpdated.toLocaleString();
+            document.getElementById('timePassed').textContent = calculateTimePassed(lastUpdated);
+        };
+    </script>
+    
+    <!-- TikTok Embed Script -->
+    <script async src="https://www.tiktok.com/embed.js"></script>
+</body>
 </html>
-
-
